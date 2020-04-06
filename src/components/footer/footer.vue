@@ -87,7 +87,9 @@ export default {
     bottom: 0
     display: flex
     text-align: center
+    background: #fff
     box-shadow: 0 -1px 1px 1px #f7f7f7
+    z-index: 10
     .footer-item
         flex: 1
         display: table
