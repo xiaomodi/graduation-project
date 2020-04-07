@@ -92,14 +92,14 @@ export default {
     z-index: 10
     .footer-item
         flex: 1
-        display: table
+        padding: .55rem 0
+        box-sizing: border-box
         text-align: center
         &.active
             bgColor()
         .footer-item-content
             height: 3.5rem
-            display: table-cell
-            vertical-align: middle
+            text-align: center
             .icon
                 font-size: 1.4rem
                 text-align: center

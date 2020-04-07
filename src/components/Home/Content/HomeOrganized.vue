@@ -1,32 +1,35 @@
 <template>
-  <div class='HomeOrganuzed-Wrapper' ref='ContentWrapper'>
-    <div>
-      <div class="HomeOrganzed-Swiper">
-        <swiper ref="mySwiper" :options="swiperOptions">
-          <swiper-slide><img class='swiper-pic' src="https://image1.suning.cn/uimg/cms/img/158590537953305112.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
-          <swiper-slide><img class='swiper-pic' src="https://image.suning.cn/uimg/aps/material/158592019157922389.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
-          <swiper-slide><img class='swiper-pic' src="https://image.suning.cn/uimg/aps/material/157346145382344556.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
-          <swiper-slide><img class='swiper-pic' src="https://oss.suning.com/aps/aps_learning/iwogh/2020/04/06/16/iwoghBannerPicture/1a38504f903348e4855282940121aad7.png?format=_is_1242w_610h" alt=""></swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
-      </div>
-      <div class="content-tit">
-        <span class='activity'>线下活动</span>
-        <span class='read-more'>更多>></span>
-      </div>
-      <div class="Content-Wrapper">
-        <div class="Content-Item" v-for='(item, index) in this.HomeList' :key='index'>
-          <img class='Content-Item-Pic' :src="item.imgUrl" alt="">
-          <div class="title">
-            {{item.title}}
-          </div>
-          <div class="item-footer">
-            <span class='time'>{{item.time | getDate}}</span>
-            <span class='address'>{{item.address}}</span>
+  <div>
+    <div class='HomeOrganuzed-Wrapper' ref='ContentWrapper'>
+      <div>
+        <div class="HomeOrganzed-Swiper">
+          <swiper ref="mySwiper" :options="swiperOptions">
+            <swiper-slide><img class='swiper-pic' src="https://image1.suning.cn/uimg/cms/img/158590537953305112.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
+            <swiper-slide><img class='swiper-pic' src="https://image.suning.cn/uimg/aps/material/158592019157922389.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
+            <swiper-slide><img class='swiper-pic' src="https://image.suning.cn/uimg/aps/material/157346145382344556.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
+            <swiper-slide><img class='swiper-pic' src="https://oss.suning.com/aps/aps_learning/iwogh/2020/04/06/16/iwoghBannerPicture/1a38504f903348e4855282940121aad7.png?format=_is_1242w_610h" alt=""></swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+          </swiper>
+        </div>
+        <div class="content-tit">
+          <span class='activity'>线下活动</span>
+          <span class='read-more'>更多>></span>
+        </div>
+        <div class="Content-Wrapper">
+          <div class="Content-Item" v-for='(item, index) in this.HomeList' :key='index'>
+            <img class='Content-Item-Pic' :src="item.imgUrl" alt="">
+            <div class="title">
+              {{item.title}}
+            </div>
+            <div class="item-footer">
+              <span class='time'>{{item.time | getDate}}</span>
+              <span class='address'>{{item.address}}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="loadmore" v-show='loadmore'>加载中.......</div>
   </div>
 </template>
 
@@ -40,6 +43,8 @@ export default {
   data () {
     return {
       HomeList: [],
+      pages: 1,
+      loadmore: false,
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
@@ -53,7 +58,7 @@ export default {
   filters: {
     getDate (time) {
       const date = new Date(time) // 这一步拿到通过ajax拿到的时间戳
-      console.log(date)
+      // console.log(date)
       return formatDate(date, 'MM/dd')
     }
   },
@@ -69,11 +74,35 @@ export default {
     getScroll () {
       if (!this.scroll) {
         this.scroll = new BScroll(this.$refs.ContentWrapper, {
-          click: true
+          click: true,
+          probeType: 3,
+          pullUpLoad: {
+            threshold: -80
+          }
         })
       } else {
         this.scroll.refresh()
-      }
+      } // pullingUp
+      this.scroll.on('pullingUp', poy => {
+        console.log(poy)
+        this.loadmore = true
+        this.pages++
+        axios.get('/api/Home.json?=' + this.pages).then(res => {
+          if (res.status === 200) {
+            this.loadmore = false
+            const HomeList = res.data.data.Home
+            HomeList.forEach(item => {
+              this.HomeList.push(item)
+            })
+          }
+        }).catch(err => {
+          console.log(err)
+        })
+        setTimeout(() => {
+          this.scroll.finishPullUp()
+          this.scroll.refresh()
+        }, 1000)
+      })
     }
   },
   created () {
@@ -158,4 +187,14 @@ export default {
           font-size: .9rem
           float: right
           display: blick
+.loadmore
+  width: 100%
+  line-height: 2.2rem
+  background: #ccc
+  color: #000
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 3.3rem
+  text-align: center
 </style>
