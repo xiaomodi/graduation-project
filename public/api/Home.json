@@ -6,30 +6,35 @@
             "imgUrl": "https://imgs.qunarzz.com/p/tts8/1606/4a/01a3136f204bc6f7.jpg_r_480x320x95_d55247e7.jpg",
             "title": "南京当地游 3天跟团游",
             "time": 1433281964000,
-            "address": "江苏|南京"
+            "address": "江苏省|南京市",
+            "tel": 1234566
           },
           {
             "imgUrl": "http://img1.qunarzz.com/vs_ceph_vs_tts/09843e06-23f6-4079-8222-8c2c507d37b2.jpg_r_240x160x95_23ddb119.jpg",
             "title": "北京张裕爱斐堡国际酒庄1晚+馆藏干红葡萄酒/酒庄参观，欧洲小镇风格多样",
             "time": 1469271264000,
-            "address": "江苏|南京"
+            "address": "江苏省|南京市",
+            "tel": 1234566
           },
           {
             "imgUrl": "https://imgs.qunarzz.com/vs_ceph_vs_tts/109470fb-c9a9-456b-9c86-ba9669d77c3e.jpg_r_480x320x95_89f11c6e.jpg",
             "title": "南京-周庄 2天跟团游",
             "time": 1470261964000,
-            "address": "江苏|南京"
+            "address": "江苏省|南京市",
+            "tel": 1234566
           },
           {
             "imgUrl": "https://imgs.qunarzz.com/p/p70/1809/e7/4941057a6aae702.jpg_256x160_9fee6ccb.jpg",
             "title": "南京-中山陵 2天跟团游",
             "time": 1471281964000,
-            "address": "江苏|南京"
+            "address": "江苏省|南京市",
+            "tel": 1234566
           },{
             "imgUrl": "https://imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg",
             "title": "南京当地游 3天跟团游",
             "time": 1472271264000,
-            "address": "江苏|南京"
+            "address": "江苏省|南京市",
+            "tel": 1234566
           }
       ]
   }

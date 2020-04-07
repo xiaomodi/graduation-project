@@ -16,7 +16,7 @@
           <span class='read-more'>更多>></span>
         </div>
         <div class="Content-Wrapper">
-          <div class="Content-Item" v-for='(item, index) in this.HomeList' :key='index'>
+          <div class="Content-Item" v-for='(item, index) in this.HomeList' :key='index' @click='handleClickItem(item)'>
             <img class='Content-Item-Pic' :src="item.imgUrl" alt="">
             <div class="title">
               {{item.title}}
@@ -30,6 +30,7 @@
       </div>
     </div>
     <div class="loadmore" v-show='loadmore'>加载中.......</div>
+    <HomeOriganizedItem v-show='DetailShow' @close='handleCloseItemDetail' :selectItem='selectItem'/>
   </div>
 </template>
 
@@ -37,14 +38,20 @@
 import axios from 'axios'
 import BScroll from 'better-scroll'
 import { formatDate } from '@/assets/js/formatDate'
+import HomeOriganizedItem from './HomeOriganizedItem/HomeOriganizedItem'
 
 export default {
   name: 'HomeOrganuzed',
+  components: {
+    HomeOriganizedItem
+  },
   data () {
     return {
       HomeList: [],
+      selectItem: [],
       pages: 1,
       loadmore: false,
+      DetailShow: false,
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
@@ -84,7 +91,6 @@ export default {
         this.scroll.refresh()
       } // pullingUp
       this.scroll.on('pullingUp', poy => {
-        console.log(poy)
         this.loadmore = true
         this.pages++
         axios.get('/api/Home.json?=' + this.pages).then(res => {
@@ -103,6 +109,13 @@ export default {
           this.scroll.refresh()
         }, 1000)
       })
+    },
+    handleClickItem (item) {
+      this.DetailShow = true
+      this.selectItem = item
+    },
+    handleCloseItemDetail () {
+      this.DetailShow = false
     }
   },
   created () {
@@ -183,6 +196,7 @@ export default {
         .time
           float: left
           display: block
+          font-size: .9rem
         .address
           font-size: .9rem
           float: right

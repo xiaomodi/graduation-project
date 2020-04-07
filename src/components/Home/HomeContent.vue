@@ -57,7 +57,7 @@ export default {
       .item
         padding-bottom: .4rem
         &.active
-          border-bottom: .1rem solid red
+          border-bottom: .25rem solid red
   .HomeContent
     width: 100%
 </style>
