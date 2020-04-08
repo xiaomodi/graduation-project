@@ -14,7 +14,7 @@
             <ul>
                 <li class='Item-Date'>
                     <span class='icon'>图标</span>
-                    <span class='content'>{{selectItem.time | getAllDate}}</span>
+                    <span class='content'>{{this.selectItem.time | getAllDate}}</span>
                 </li>
                 <li class='Item-Address'>
                     <span class='icon'>图标</span>
@@ -22,7 +22,7 @@
                 </li>
                 <li class='Item-tel'>
                     <span class='icon'>图标</span>
-                    <span class='content'>{{selectItem.tel}}</span>
+                    <span class='content'>{{this.selectItem.tel}}</span>
                 </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getDates } from '@/assets/js/getDates'
+import { getdates } from '@/assets/js/getDates'
 
 export default {
   name: 'HomeOriganizedItem',
@@ -40,9 +40,9 @@ export default {
     }
   },
   filters: {
-    getAllDate (date) {
-      console.log(date)
-      return getDates(date, 'YYYY年MM月DD日 hh:mm')
+    getAllDate (time) {
+      const date = new Date(time)
+      return getdates(date, 'YYYY年MM月DD日 hh:mm')
     }
   },
   methods: {

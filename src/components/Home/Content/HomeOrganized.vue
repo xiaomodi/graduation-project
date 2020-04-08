@@ -49,6 +49,7 @@ export default {
     return {
       HomeList: [],
       selectItem: [],
+      getfullyear: '',
       pages: 1,
       loadmore: false,
       DetailShow: false,
