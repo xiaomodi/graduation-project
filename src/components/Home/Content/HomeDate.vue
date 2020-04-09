@@ -11,7 +11,7 @@
               <div class="swiper-pagination" slot="pagination"></div>
             </swiper>
           </div>
-          <div class="Date-Content">
+          <div class="Date-Content-wrapper">
               <div class="content-tit">
                 <span class='lastmonth' @click="prevMonth">《</span>
                 <span class='title-year'>{{time.year}} 年</span>
@@ -41,7 +41,24 @@
                 </div>
               </div>
           </div>
-          <div class="number" @click='handleshow'>11111</div>
+          <div class="line"></div>
+          <div class="node-content" @click='handleshow'>
+            <div class="today-wrapper">
+              <span class='today'>今天</span>
+              <span class='today-date'>{{this.currentDate | getToday}}</span>
+              <span class="add" @click='hanleClickAdd'>添加</span>
+            </div>
+            <ul>
+              <li class='node-item' v-for='item in 10' :key='item'>
+                <span class='time'>时间</span>
+                <span class='content'>内容</span>
+                <span class='rewrite'>
+                  <span class="edit" @click='handleClickEdit'>编辑</span>
+                  <span class="cancel">取消</span>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <HomeDateDetail v-show='DetailShow' @close='SwiperRightClose'/>
@@ -51,6 +68,7 @@
 <script>
 import BScroll from 'better-scroll'
 import { getYearMonthDay, getDate } from '@/assets/js/utils'
+import { getdates } from '@/assets/js/getDates'
 import HomeDateDetail from './HomeDateDetail/HomeDateDetail'
 
 export default {
@@ -69,6 +87,7 @@ export default {
     return {
       DetailShow: false,
       days: ['日', '一', '二', '三', '四', '五', '六'],
+      currentDate: new Date(),
       time: { year, month },
       choseDate: '',
       swiperOptions: {
@@ -79,6 +98,13 @@ export default {
         loop: true,
         speed: 1000
       }
+    }
+  },
+  filters: {
+    getToday (time) {
+      const today = new Date(time)
+      console.log(today)
+      return getdates(today, 'MM月DD日')
     }
   },
   computed: {
@@ -150,15 +176,25 @@ export default {
       this.time = getYearMonthDay(d)
     },
     getScroll () {
-      this.scroll = new BScroll(this.$refs.DateWrapper, {
-        click: true
-      })
+      if (!this.scroll) {
+        this.scroll = new BScroll(this.$refs.DateWrapper, {
+          click: true
+        })
+      } else {
+        this.scroll.refresh()
+      }
     },
     handleshow () {
       this.DetailShow = true
     },
     SwiperRightClose () {
       this.DetailShow = false
+    },
+    hanleClickAdd () {
+      this.DetailShow = true
+    },
+    handleClickEdit () {
+      this.DetailShow = true
     }
   },
   created () {
@@ -173,6 +209,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../../assets/stylus/ellipsis.styl'
+
 .HomeDate-Swiper>>>.swiper-pagination-bullet-active
   background: #fff
 .HomeDate-Wrapper
@@ -181,23 +219,25 @@ export default {
   top: 3rem
   left: 0
   right: 0
-  bottom: 0
+  bottom: 3.3rem
   overflow: hidden
-  padding: 0 .4rem
-  box-sizing: border-box
+  // padding: 0 .4rem
+  // box-sizing: border-box
   .HomeDate-Swiper
     width: 100%
     height: 0
-    padding-bottom: 10rem
+    padding: 0 .4rem 10rem .4rem
+    box-sizing: border-box
     .swiper-pic
       width: 100%
       height: 10rem
       border-radius: .3rem
-  .Date-Content
+  .Date-Content-wrapper
     width: 100%
     height: 100%
     margin-top: .3rem
-    padding: .3rem 0
+    padding: .3rem 0.4rem
+    box-sizing: border-box
     .content-tit
       width: 100%
       line-height: 1.5rem
@@ -218,7 +258,8 @@ export default {
       box-sizing: border-box
       .days-head
         display: flex
-        border: .01rem solid black
+        // border: .01rem solid black
+        margin-bottom: .5rem
         padding: .3rem 0
         box-sizing: border-box
         .days-item
@@ -226,20 +267,72 @@ export default {
           text-align: center
       .date-calendar
         width: 100%
-        border: .01rem solid red
         .hang
           display: flex
           .lie
             flex: 1
             text-align: center
-            border: .01rem solid red
+            // border: .01rem solid red
             padding: .5rem 0
             &.notCurrentMonth
               color: #dfe1e3;
             &.today
               background: red;
               color: #ffffff;
+              border-radius: .3rem
           .lie:hover
             background: red
             color: #fff
+   .line
+    width: 100%
+    height: .3rem
+    background: #efedee
+  .node-content
+    width: 100%
+    padding: .5rem 1.2rem
+    box-sizing: border-box
+    border: .01rem solid black
+    .today-wrapper
+      margin-bottom: .5rem
+      overflow: hidden
+      border: .01rem solid black
+      .today
+        line-height: 1.5rem
+        font-weight: bold
+        margin-right: .5rem
+      .today-date
+        font-size: .9rem
+      .add
+        line-height: 1.5rem
+        float: right
+        display: block
+        margin-right: .7rem
+    .node-item
+      width: 100%
+      height: 2.2rem
+      line-height: 2.2rem
+      border-bottom: 0.01rem solid #e8e8e8
+      padding: 0 .5rem
+      box-sizing: border-box
+      display: flex
+      .time
+        border: .01rem solid yellow
+        flex: 0 0 3.7rem
+      .content
+        border: .01rem solid green
+        flex: 1
+        ellipsis()
+      .rewrite
+        border: .01rem solid red
+        flex: 0 0 4rem
+        font-size: .8rem
+        overflow: hidden
+        .edit
+          border: .01rem solid pink
+          float: left
+          display: block
+        .cancel
+          border: .01rem solid orange
+          float: right
+          display: block
 </style>

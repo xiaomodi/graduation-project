@@ -5,9 +5,14 @@
                 <span class='BackHome' @click='handleBackHome'>
                     返回
                 </span>
-                <span class='ItemTit'>活动详情</span>
+                <span class='ItemTit'>添加日程</span>
             </div>
-            <div class="line"></div>
+            <div class="input-wrapper">
+                <textarea name="text" wrap='hard' cols='100%' class='input-content' placeholder="输入内容" v-model='text'></textarea>
+            </div>
+             <div class="line"></div>
+             <div class="btn">完成</div>
+             <div>{{this.text}}</div>
         </v-touch>
     </transition>
 </template>
@@ -15,6 +20,11 @@
 <script>
 export default {
   name: 'HomeDateDetail',
+  data () {
+    return {
+      text: ''
+    }
+  },
   methods: {
     swiperight () {
       this.$emit('close')
@@ -27,6 +37,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../../../assets/stylus/bgColor.styl'
+
 .move-enter
     transform: translate3d(100%, 0, 0)
 .move-enter-active
@@ -43,11 +55,6 @@ export default {
     bottom: 0
     background: #ffffff
     z-index: 1000
-    // &.move-transition
-    //     transition: all 1s linear
-    //     transform: translate3d(0,0,0)
-    // &.move-enter, &.move-leave
-    //     transform: translate3d(100%, 0, 0)
     .ItemHeader
         width: 100%
         height: 3rem
@@ -63,4 +70,25 @@ export default {
             line-height: 3rem
             text-align: center
             font-weight: bold
+    .input-wrapper
+        width: 100%
+        // height: 10%
+        .input-content
+            display: block
+            width: 98%
+            height: 11rem
+            font-size: 1.1rem
+            padding-left: 0.4rem
+            box-sizing: border-box
+    .line
+        width: 100%
+        height: .6rem
+        background: #f7f8fa
+        border: 0.01rem solid #ebebeb
+    .btn
+        width: 100%
+        line-height: 2rem
+        text-align: center
+        background: red
+        color: #fff
 </style>
