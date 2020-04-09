@@ -1,32 +1,34 @@
 <template>
-    <div class='Item-Wrapper'>
-        <div class="ItemHeader">
-            <span class='BackHome' @click='handleBackHome'>
-                返回
-            </span>
-            <span class='ItemTit'>活动详情</span>
-        </div>
-        <div class="ItemImg">
-            <img :src="selectItem.imgUrl" alt="">
-        </div>
-        <div class="line"></div>
-        <div class="ItemDetail">
-            <ul>
-                <li class='Item-Date'>
-                    <span class='icon'>图标</span>
-                    <span class='content'>{{this.selectItem.time | getAllDate}}</span>
-                </li>
-                <li class='Item-Address'>
-                    <span class='icon'>图标</span>
-                    <span class='content city' v-for="(iteminner, index) in this.selectItem.address.split('|')" :key='index'>{{iteminner}}</span>
-                </li>
-                <li class='Item-tel'>
-                    <span class='icon'>图标</span>
-                    <span class='content'>{{this.selectItem.tel}}</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <transition name='move'>
+        <v-touch class='Item-Wrapper' v-on:swiperight="swiperight">
+            <div class="ItemHeader">
+                <span class='BackHome' @click='handleBackHome'>
+                    返回
+                </span>
+                <span class='ItemTit'>活动详情</span>
+            </div>
+            <div class="ItemImg">
+                <img :src="selectItem.imgUrl" alt="">
+            </div>
+            <div class="line"></div>
+            <div class="ItemDetail">
+                <ul>
+                    <li class='Item-Date'>
+                        <span class='icon'>图标</span>
+                        <span class='content'>{{this.selectItem.time | getAllDate}}</span>
+                    </li>
+                    <li class='Item-Address'>
+                        <span class='icon'>图标</span>
+                        <span class='content city' v-for="(iteminner, index) in this.selectItem.address.split('|')" :key='index'>{{iteminner}}</span>
+                    </li>
+                    <li class='Item-tel'>
+                        <span class='icon'>图标</span>
+                        <span class='content'>{{this.selectItem.tel}}</span>
+                    </li>
+                </ul>
+            </div>
+        </v-touch>
+    </transition>
 </template>
 
 <script>
@@ -48,12 +50,19 @@ export default {
   methods: {
     handleBackHome () {
       this.$emit('close')
+    },
+    swiperight () {
+      this.$emit('close')
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.move-enter, .move-leave-to
+    transform: translate3d(100%, 0, 0)
+.move-enter-active, .move-leave-active
+    transition: all .2s linear
 .Item-Wrapper
     position: absolute
     top: 0
