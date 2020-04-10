@@ -19,7 +19,7 @@
                     </li>
                     <li class='Item-Address'>
                         <span class='icon'>图标</span>
-                        <span class='content city' v-for="(iteminner, index) in this.selectItem.address.split('|')" :key='index'>{{iteminner}}</span>
+                        <span class='content city' v-for="(iteminner, index) in selectItem.address.split('|')" :key='index'>{{iteminner}}</span> <!--v-for="(iteminner, index) in selectItem.address.split('|')" :key='index'-->
                     </li>
                     <li class='Item-tel'>
                         <span class='icon'>图标</span>

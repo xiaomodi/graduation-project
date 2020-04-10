@@ -23,7 +23,7 @@
             </div>
             <div class="item-footer">
               <span class='time'>{{item.time | getDate}}</span>
-              <span class='address'>{{item.address}}</span>
+              <span class='address' v-for="(iteminner, index) in item.address.split('|')" :key='index'>{{iteminner}}</span>
             </div>
           </div>
         </div>
