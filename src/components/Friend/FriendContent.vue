@@ -26,7 +26,7 @@
                   <span class="name">{{inner.name}}</span>
               </li>
           </ul>
-          <div class="nothing" v-if='hasNoDate'>什么都没有找到</div>
+          <div class="nothing" v-show='hasNoDate'>什么都没有找到</div>
         </div>
         <FriendLetter :friendlist='friendlist' @change='handleLetterChange' />
     </div>
