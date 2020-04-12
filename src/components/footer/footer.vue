@@ -13,7 +13,7 @@
                 <div class='footer-text'>首页</div>
             </div>
         </router-link>
-        <router-link to='/login' class='footer-item' :class="{active: isactive === 2}" tag='div' @click.native='handleFooterIcon(2)'>
+        <router-link to='/Friend' class='footer-item' :class="{active: isactive === 2}" tag='div' @click.native='handleFooterIcon(2)'>
             <div class='footer-item-content'>
                 <div>
                     <svg class="icon icon2" aria-hidden="true">
@@ -23,7 +23,7 @@
                 <div class='footer-text'>好友</div>
             </div>
         </router-link>
-        <router-link to='/login' class='footer-item' :class="{active: isactive === 3}" tag='div' @click.native='handleFooterIcon(3)'>
+        <router-link to='/Trends' class='footer-item' :class="{active: isactive === 3}" tag='div' @click.native='handleFooterIcon(3)'>
             <div class='footer-item-content'>
                 <div>
                     <svg class="icon" aria-hidden="true">
@@ -33,7 +33,7 @@
                 <div class='footer-text'>动态</div>
             </div>
         </router-link>
-        <router-link to='/login' class='footer-item' :class="{active: isactive === 4}" tag='div' @click.native='handleFooterIcon(4)'>
+        <router-link to='/Shop' class='footer-item' :class="{active: isactive === 4}" tag='div' @click.native='handleFooterIcon(4)'>
             <div class='footer-item-content'>
                 <div>
                     <svg class="icon" aria-hidden="true">
@@ -43,7 +43,7 @@
                 <div class='footer-text'>圈子</div>
             </div>
         </router-link>
-        <router-link to='/login' class='footer-item' :class="{active: isactive === 5}" tag='div' @click.native='handleFooterIcon(5)'>
+        <router-link to='/Mine' class='footer-item' :class="{active: isactive === 5}" tag='div' @click.native='handleFooterIcon(5)'>
             <div class='footer-item-content'>
                 <div>
                     <svg class="icon icon5" aria-hidden="true" v-if='isactive != 5'>
@@ -77,7 +77,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../../assets/stylus/bgColor.styl'
-
 .footer-wrapper
     width: 100%
     height: 3.5rem
@@ -96,7 +95,7 @@ export default {
         box-sizing: border-box
         text-align: center
         &.active
-            bgColor()
+            color: $bgColor
         .footer-item-content
             height: 3.5rem
             text-align: center

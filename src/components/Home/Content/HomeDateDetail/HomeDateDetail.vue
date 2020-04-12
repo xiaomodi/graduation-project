@@ -12,7 +12,6 @@
             </div>
              <div class="line"></div>
              <div class="btn">完成</div>
-             <div>{{this.text}}</div>
         </v-touch>
     </transition>
 </template>
