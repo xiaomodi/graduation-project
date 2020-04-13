@@ -1,57 +1,53 @@
 <template>
     <div class='footer-wrapper'>
-        <router-link to='/' class='footer-item' :class="{active: isactive === 1}" tag='div' @click.native='handleFooterIcon(1)'>
+        <router-link to='/' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <svg class="icon" aria-hidden="true"  v-if='isactive != 1'>
-                        <use xlink:href="#icon-shouye"></use>
-                    </svg>
-                    <svg class="icon" aria-hidden="true" v-if='isactive === 1'>
-                        <use xlink:href="#icon-shouye-copy"></use>
-                    </svg>
+                    <span class='iconfont icon1'>&#xe601;</span>
                 </div>
                 <div class='footer-text'>首页</div>
             </div>
         </router-link>
-        <router-link to='/Friend' class='footer-item' :class="{active: isactive === 2}" tag='div' @click.native='handleFooterIcon(2)'>
+        <router-link to='/Friend' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <svg class="icon icon2" aria-hidden="true">
+                    <span class="iconfont">&#xe600;</span>
+                    <!-- <svg class="icon icon2" aria-hidden="true">
                         <use xlink:href="#icon-icon_dw"></use>
-                    </svg>
+                    </svg> -->
                 </div>
                 <div class='footer-text'>好友</div>
             </div>
         </router-link>
-        <router-link to='/Trends' class='footer-item' :class="{active: isactive === 3}" tag='div' @click.native='handleFooterIcon(3)'>
+        <router-link to='/Trends' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <svg class="icon" aria-hidden="true">
+                    <!-- <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-dongtai1"></use>
-                    </svg>
+                    </svg> -->
+                    <span class="iconfont">&#xe630;</span>
                 </div>
                 <div class='footer-text'>动态</div>
             </div>
         </router-link>
-        <router-link to='/Shop' class='footer-item' :class="{active: isactive === 4}" tag='div' @click.native='handleFooterIcon(4)'>
+        <router-link to='/Shop' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <svg class="icon" aria-hidden="true">
+                    <!-- <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-dongtai2"></use>
-                    </svg>
+                    </svg> -->
+                    <span class="iconfont">&#xe6a4;</span>
                 </div>
                 <div class='footer-text'>圈子</div>
             </div>
         </router-link>
-        <router-link to='/Mine' class='footer-item' :class="{active: isactive === 5}" tag='div' @click.native='handleFooterIcon(5)'>
+        <router-link to='/Mine' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <svg class="icon icon5" aria-hidden="true" v-if='isactive != 5'>
+                    <!-- <svg class="icon icon5" aria-hidden="true" >
                         <use xlink:href="#icon-renwu"></use>
-                    </svg>
-                    <svg class="icon icon5" aria-hidden="true" v-if='isactive === 5'>
-                        <use xlink:href="#icon-renwu-copy"></use>
-                    </svg>
+                    </svg> -->
+                    <span class="iconfont">&#xe603;</span>
                 </div>
                 <div class='footer-text'>我的</div>
             </div>
@@ -61,17 +57,7 @@
 
 <script>
 export default {
-  name: 'Footer',
-  data () {
-    return {
-      isactive: 1
-    }
-  },
-  methods: {
-    handleFooterIcon (num) {
-      this.isactive = num
-    }
-  }
+  name: 'Footer'
 }
 </script>
 
@@ -94,22 +80,23 @@ export default {
         padding: .55rem 0
         box-sizing: border-box
         text-align: center
-        &.active
+        color: #000
+        &.router-link-exact-active
             color: $bgColor
         .footer-item-content
             height: 3.5rem
             text-align: center
-            .icon
-                font-size: 1.4rem
+            .iconfont
+                font-size: 1.5rem
                 text-align: center
-                margin-bottom: .3rem
+                margin-bottom: .4rem
                 &.icon1
-                    color: red
+                    display: block
+                    font-size: 1.4rem
+                    margin-bottom: .13rem
                 &.icon2
                     font-size: 1.5rem
                     margin-bottom: .2rem!important
-                &.icon5
-                    color: red
             .footer-text
                 text-align: center
                 font-size: .8rem

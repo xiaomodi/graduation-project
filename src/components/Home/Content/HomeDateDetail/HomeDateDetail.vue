@@ -74,7 +74,7 @@ export default {
         // height: 10%
         .input-content
             display: block
-            width: 98%
+            width: 100%
             height: 11rem
             font-size: 1.1rem
             padding-left: 0.4rem
