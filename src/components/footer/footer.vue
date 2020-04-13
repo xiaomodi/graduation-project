@@ -12,9 +12,6 @@
             <div class='footer-item-content'>
                 <div>
                     <span class="iconfont">&#xe600;</span>
-                    <!-- <svg class="icon icon2" aria-hidden="true">
-                        <use xlink:href="#icon-icon_dw"></use>
-                    </svg> -->
                 </div>
                 <div class='footer-text'>好友</div>
             </div>
@@ -22,9 +19,6 @@
         <router-link to='/Trends' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <!-- <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dongtai1"></use>
-                    </svg> -->
                     <span class="iconfont">&#xe630;</span>
                 </div>
                 <div class='footer-text'>动态</div>
@@ -33,9 +27,6 @@
         <router-link to='/Shop' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <!-- <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-dongtai2"></use>
-                    </svg> -->
                     <span class="iconfont">&#xe6a4;</span>
                 </div>
                 <div class='footer-text'>圈子</div>
@@ -44,9 +35,6 @@
         <router-link to='/Mine' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <!-- <svg class="icon icon5" aria-hidden="true" >
-                        <use xlink:href="#icon-renwu"></use>
-                    </svg> -->
                     <span class="iconfont">&#xe603;</span>
                 </div>
                 <div class='footer-text'>我的</div>
