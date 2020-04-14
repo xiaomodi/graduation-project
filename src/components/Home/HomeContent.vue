@@ -1,15 +1,15 @@
 <template>
     <div class='HomeContent-Wrapper'>
        <div class="HomeHeader">
-         <div class="homeheader-item" @click='handleClickHeaderItem(1)'><span class='item' :class='{active: isactive === 1}'>日历</span></div>
-         <div class="homeheader-item" @click='handleClickHeaderItem(2)'><span class='item' :class='{active: isactive === 2}'>活动组织</span></div>
-         <div class="homeheader-item" @click='handleClickHeaderItem(3)'><span class='item' :class='{active: isactive === 3}'>文章精选</span></div>
+         <div class="homeheader-item" @click='handleClickHeaderItem(1)'><span class='item' :class='{active: 1 === $store.state.isactive}'>日历</span></div>
+         <div class="homeheader-item" @click='handleClickHeaderItem(2)'><span class='item' :class='{active: 2 === $store.state.isactive}'>活动组织</span></div>
+         <div class="homeheader-item" @click='handleClickHeaderItem(3)'><span class='item' :class='{active: 3 === $store.state.isactive}'>文章精选</span></div>
        </div>
        <div class="HomeContent">
          <div>
-            <HomeDate v-if='isactive === 1'/>
-            <HomeOrganuzed v-if='isactive === 2'/>
-            <HomeArticale v-if='isactive === 3'/>
+            <HomeDate v-if='1 === $store.state.isactive'/>
+            <HomeOrganuzed v-if='2 === $store.state.isactive'/>
+            <HomeArticale v-if='3 === $store.state.isactive'/>
          </div>
        </div>
     </div>
@@ -27,15 +27,13 @@ export default {
     HomeArticale,
     HomeOrganuzed
   },
-  data () {
-    return {
-      isactive: 1
-    }
-  },
   methods: {
     handleClickHeaderItem (num) {
-      this.isactive = num
+      this.$store.dispatch('changNumber', num)
     }
+  },
+  mounted () {
+    console.log(this.$store.state.isactive)
   }
 }
 </script>

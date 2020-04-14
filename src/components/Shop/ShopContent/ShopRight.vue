@@ -15,11 +15,17 @@
 </template>
 
 <script>
+
 export default {
   name: 'ShopRightContent',
   props: {
     pageList: {
       type: Array
+    }
+  },
+  methods: {
+    handleClickItem (item) {
+      this.$emit('show', item)
     }
   }
 }

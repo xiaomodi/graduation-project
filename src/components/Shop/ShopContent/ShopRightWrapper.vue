@@ -12,10 +12,11 @@
                     </swiper>
                 </div>
                 <ShopIcon :IconList='IconList'/>
-                <ShopRightContent :pageList='pageList'/>
+                <ShopRightContent :pageList='pageList' @show='HandleDetailShow'/>
             </div>
         </div>
          <div class="loadmore" v-show='loadmore'>加载中.......</div>
+         <ShopDetail v-show='DetailShow' @close='handleDetailClose'/>
     </div>
 </template>
 
@@ -24,10 +25,12 @@ import axios from 'axios'
 import BScroll from 'better-scroll'
 import ShopIcon from '../ShopIcon'
 import ShopRightContent from './ShopRight'
+import ShopDetail from './ShopDetail/ShopDetail'
 export default {
   name: 'ShopRightWrapper',
   components: {
     ShopIcon,
+    ShopDetail,
     ShopRightContent
   },
   data () {
@@ -35,6 +38,7 @@ export default {
       IconList: [],
       pageList: [],
       page: 0,
+      DetailShow: true,
       loadmore: false,
       swiperOptions: {
         pagination: {
@@ -91,10 +95,17 @@ export default {
           console.log(err)
         })
         setTimeout(() => {
-          this.scroll.finishPullup()
+          this.scroll.finishPullUp()
           this.scroll.refresh()
         }, 1000)
       })
+    },
+    HandleDetailShow (item) {
+      console.log(item)
+      this.DetailShow = true
+    },
+    handleDetailClose () {
+      this.DetailShow = false
     }
   },
   mounted () {

@@ -11,7 +11,7 @@
       <div class="search-input">
           <input type="text" class='input iconfont' :placeholder='icon'>
       </div>
-      <ShopRightWrapper/>
+      <ShopRightWrapper v-show='isactive === 1'/>
     </div>
 </template>
 
