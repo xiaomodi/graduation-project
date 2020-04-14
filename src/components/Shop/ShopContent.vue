@@ -11,57 +11,27 @@
       <div class="search-input">
           <input type="text" class='input iconfont' :placeholder='icon'>
       </div>
-      <div class="Shop-Swiper">
-          <swiper ref="mySwiper" :options="swiperOptions">
-            <swiper-slide><img class='swiper-pic' src="https://image1.suning.cn/uimg/cms/img/158590537953305112.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
-            <swiper-slide><img class='swiper-pic' src="https://image.suning.cn/uimg/aps/material/158592019157922389.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
-            <swiper-slide><img class='swiper-pic' src="https://image.suning.cn/uimg/aps/material/157346145382344556.jpg?format=_is_1242w_610h" alt=""></swiper-slide>
-            <swiper-slide><img class='swiper-pic' src="https://oss.suning.com/aps/aps_learning/iwogh/2020/04/06/16/iwoghBannerPicture/1a38504f903348e4855282940121aad7.png?format=_is_1242w_610h" alt=""></swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
-          </swiper>
-      </div>
-      <ShopIcon :IconList='IconList'/>
+      <ShopRightWrapper/>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
-import ShopIcon from './ShopIcon'
+import ShopRightWrapper from './ShopContent/ShopRightWrapper'
 export default {
   name: 'ShopContent',
   components: {
-    ShopIcon
+    ShopRightWrapper
   },
   data () {
     return {
       isactive: 1,
-      icon: '\ue630 搜索',
-      IconList: [],
-      swiperOptions: {
-        pagination: {
-          el: '.swiper-pagination'
-        },
-        loop: true
-      }
+      icon: '\ue630 搜索'
     }
   },
   methods: {
     handleCLickTab (num) {
       this.isactive = num
-    },
-    getAxios () {
-      axios.get('/api/ShopIndex.json').then(res => {
-        const IconList = res.data.IconList
-        this.IconList = IconList
-      }).catch(err => {
-        console.log(err)
-      })
     }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.getAxios()
-    })
   }
 }
 </script>
@@ -69,8 +39,6 @@ export default {
 <style lang='stylus' scoped>
 @import '../../assets/stylus/bgColor.styl'
 
-.Shop-Swiper >>> .swiper-pagination-bullet-active
-    background: #fff
 .Shop-Wrapper
     width: 100%
     box-sizing: border-box
@@ -106,9 +74,14 @@ export default {
             text-align: center
             border-radius: 2.2rem
             border: .1rem solid $bgColor
-    .Shop-Swiper
-        .swiper-pic
-            width: 100%
-            height: 10rem
-            border-radius: .3rem
+    .Content-Wrapper
+      position: absolute
+      top: 5.7rem
+      left: 0
+      right: 0
+      botttom: 3.5rem
+      background: yellow
+      overflow: hidden
+      padding: 0 .4rem
+      box-sizing: border-box
 </style>
