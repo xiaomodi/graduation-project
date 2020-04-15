@@ -1,10 +1,16 @@
 <template>
-    <div>Trends</div>
+    <div>
+      <TrendsContent/>
+    </div>
 </template>
 
 <script>
+import TrendsContent from '../components/Trends/TrendsContent'
 export default {
-  name: 'Trends'
+  name: 'Trends',
+  components: {
+    TrendsContent
+  }
 }
 </script>
 

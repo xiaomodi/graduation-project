@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="search-input">
+            <input type="text" class='input iconfont' :placeholder='icon'>
+        </div>
         <div class='ShopRight-Wrapper' ref='ShopRightWrapper'>
             <div>
                 <div class="Shop-Swiper">
@@ -16,7 +19,7 @@
             </div>
         </div>
          <div class="loadmore" v-show='loadmore'>加载中.......</div>
-         <ShopDetail v-show='DetailShow' @close='handleDetailClose'/>
+         <ShopDetail v-show='DetailShow' @close='handleDetailClose' :detail='detail'/>
     </div>
 </template>
 
@@ -35,8 +38,10 @@ export default {
   },
   data () {
     return {
+      icon: '\ue630 搜索',
       IconList: [],
       pageList: [],
+      detail: [],
       page: 0,
       DetailShow: false,
       loadmore: false,
@@ -103,6 +108,7 @@ export default {
     HandleDetailShow (item) {
       console.log(item)
       this.DetailShow = true
+      this.detail = item
     },
     handleDetailClose () {
       this.DetailShow = false
@@ -119,8 +125,24 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+@import '../../../assets/stylus/bgColor.styl'
+
 .Shop-Swiper >>> .swiper-pagination-bullet-active
     background: #fff
+.search-input
+  width: 100%
+  height: 3rem
+  padding: 0.5rem .6rem
+  box-sizing: border-box
+  margin-bottom: .3rem
+  .input
+      width: 100%
+      height: 2rem
+      outline: none
+      text-align: center
+      border-radius: 2.2rem
+      box-sizing: border-box
+      border: .1rem solid $bgColor
 .ShopRight-Wrapper
     position: absolute
     top: 5.5rem

@@ -8,9 +8,6 @@
               <span :class="{active: isactive === 2}">课堂</span>
           </div>
       </div>
-      <div class="search-input">
-          <input type="text" class='input iconfont' :placeholder='icon'>
-      </div>
       <ShopRightWrapper v-show='isactive === 1'/>
     </div>
 </template>
@@ -24,8 +21,7 @@ export default {
   },
   data () {
     return {
-      isactive: 1,
-      icon: '\ue630 搜索'
+      isactive: 1
     }
   },
   methods: {
@@ -61,19 +57,6 @@ export default {
             .active
                 padding-bottom: .3rem
                 border-bottom: .2rem solid $bgColor
-    .search-input
-        width: 100%
-        height: 3rem
-        padding: 0.5rem .6rem
-        box-sizing: border-box
-        margin-bottom: .3rem
-        .input
-            width: 100%
-            height: 2rem
-            outline: none
-            text-align: center
-            border-radius: 2.2rem
-            border: .1rem solid $bgColor
     .Content-Wrapper
       position: absolute
       top: 5.7rem
