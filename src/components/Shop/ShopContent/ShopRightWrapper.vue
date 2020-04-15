@@ -38,7 +38,7 @@ export default {
       IconList: [],
       pageList: [],
       page: 0,
-      DetailShow: true,
+      DetailShow: false,
       loadmore: false,
       swiperOptions: {
         pagination: {
@@ -82,7 +82,7 @@ export default {
       this.scroll.on('pullingUp', poy => {
         this.loadmore = true
         this.page++
-        axios.get('/api/page.json?=' + this.page++).then(res => {
+        axios.get('/api/page.json?=' + this.page).then(res => {
           console.log(res)
           if (res.status === 200) {
             this.loadmore = false
