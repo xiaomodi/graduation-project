@@ -1,0 +1,200 @@
+{
+    "result": 0,
+    "data": [
+        {
+            "id": "36",
+            "name": "JavaScript入门篇",
+            "easy_type": "1",
+            "short_description": "JavaScript做为一名Web工程师的必备技术，本教程让您快速入门",
+            "numbers": "687881",
+            "background_pic": "cover042",
+            "pic": "53e1d0470001ad1e06000338",
+            "status": "3",
+            "easy_name": "入门",
+            "skill": [
+                {
+                    "id": "44",
+                    "name": "JavaScript",
+                    "marking": "javascript"
+                },
+                {
+                    "id": "113",
+                    "name": "基本数据类型",
+                    "marking": ""
+                },
+                {
+                    "id": "115",
+                    "name": "基础语法",
+                    "marking": ""
+                },
+                {
+                    "id": "161",
+                    "name": "DOM对象属性和方法",
+                    "marking": ""
+                }
+            ],
+            "learn_rate": -1
+        },
+        {
+            "id": "10",
+            "name": "JavaScript进阶篇",
+            "easy_type": "1",
+            "short_description": "本课程从如何插入JS代码开始，带您进入网页动态交互世界",
+            "numbers": "435986",
+            "background_pic": "cover025",
+            "pic": "574678bd00010a7206000338",
+            "status": "3",
+            "easy_name": "入门",
+            "skill": [
+                {
+                    "id": "44",
+                    "name": "JavaScript",
+                    "marking": "javascript"
+                },
+                {
+                    "id": "113",
+                    "name": "基本数据类型",
+                    "marking": ""
+                },
+                {
+                    "id": "115",
+                    "name": "基础语法",
+                    "marking": ""
+                },
+                {
+                    "id": "116",
+                    "name": "内置对象",
+                    "marking": ""
+                },
+                {
+                    "id": "152",
+                    "name": "Math 对象",
+                    "marking": ""
+                },
+                {
+                    "id": "154",
+                    "name": "日期对象",
+                    "marking": ""
+                },
+                {
+                    "id": "121",
+                    "name": "DOM 事件",
+                    "marking": ""
+                },
+                {
+                    "id": "123",
+                    "name": "HTML DOM对象",
+                    "marking": ""
+                },
+                {
+                    "id": "161",
+                    "name": "DOM对象属性和方法",
+                    "marking": ""
+                },
+                {
+                    "id": "163",
+                    "name": "文档遍历",
+                    "marking": ""
+                },
+                {
+                    "id": "165",
+                    "name": "创建节点",
+                    "marking": ""
+                },
+                {
+                    "id": "167",
+                    "name": "插入节点",
+                    "marking": ""
+                },
+                {
+                    "id": "169",
+                    "name": "删除节点",
+                    "marking": ""
+                },
+                {
+                    "id": "125",
+                    "name": "BOM",
+                    "marking": ""
+                }
+            ],
+            "learn_rate": -1
+        },
+        {
+            "id": "277",
+            "name": "JavaScript深入浅出",
+            "easy_type": "3",
+            "short_description": "由浅入深学习JS语言特性，且解析JS常见误区，从入门到掌握",
+            "numbers": "269226",
+            "background_pic": "cover044",
+            "pic": "5705d3a3000129d006000338",
+            "status": "3",
+            "easy_name": "中级",
+            "skill": [
+                {
+                    "id": "44",
+                    "name": "JavaScript",
+                    "marking": "javascript"
+                }
+            ],
+            "learn_rate": -1
+        },
+        {
+            "id": "9",
+            "name": "初识HTML(5)+CSS(3)-2020升级版",
+            "easy_type": "1",
+            "short_description": "HTML(5)+CSS(3)基础教程8小时带领大家步步深入学习标签用法和意义",
+            "numbers": 1114698,
+            "background_pic": "cover050",
+            "pic": "529dc3380001379906000338",
+            "status": "3",
+            "easy_name": "入门",
+            "skill": [
+                {
+                    "id": "7",
+                    "name": "HTML/CSS",
+                    "marking": "html"
+                }
+            ],
+            "learn_rate": -1
+        },
+        {
+            "id": "33",
+            "name": "十天精通CSS3",
+            "easy_type": "2",
+            "short_description": "本课程为CSS3入门教程，深刻详解CSS3知识让网页穿上绚丽装备",
+            "numbers": "227251",
+            "background_pic": "cover031",
+            "pic": "576b7c04000144dc06000338",
+            "status": "3",
+            "easy_name": "初级",
+            "skill": [
+                {
+                    "id": "7",
+                    "name": "HTML/CSS",
+                    "marking": "html"
+                }
+            ],
+            "learn_rate": -1
+        },
+        {
+            "id": "138",
+            "name": "DOM事件探秘",
+            "easy_type": "3",
+            "short_description": "DOM事件？本课程会通过实例来给小伙伴们讲解如何使用这些事件",
+            "numbers": "98416",
+            "background_pic": "cover033",
+            "pic": "570aff630001881206000338",
+            "status": "3",
+            "easy_name": "中级",
+            "skill": [
+                {
+                    "id": "44",
+                    "name": "JavaScript",
+                    "marking": "javascript"
+                }
+            ],
+            "learn_rate": -1
+        }
+    ],
+    "msg": "成功"
+}

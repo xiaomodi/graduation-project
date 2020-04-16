@@ -8,26 +8,46 @@
               <span :class="{active: isactive === 2}">课堂</span>
           </div>
       </div>
-      <ShopRightWrapper v-show='isactive === 1'/>
+      <ShopRightWrapper v-show='isactive === 1' :pageList='pageList'/>
+      <ShopClassRoom v-show='isactive === 2' :pageList='pageList'/>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 import ShopRightWrapper from './ShopContent/ShopRightWrapper'
+import ShopClassRoom from './ClassRoom/ClassRoom'
 export default {
   name: 'ShopContent',
   components: {
-    ShopRightWrapper
+    ShopRightWrapper,
+    ShopClassRoom
   },
   data () {
     return {
-      isactive: 1
+      isactive: 1,
+      pageList: []
     }
   },
   methods: {
     handleCLickTab (num) {
       this.isactive = num
+    },
+    getPageAxios () {
+      axios.get('/api/page.json').then(res => {
+        if (res.status === 200) {
+          const pageList = res.data.data
+          this.pageList = pageList
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.getPageAxios()
+    })
   }
 }
 </script>

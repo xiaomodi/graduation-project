@@ -31,6 +31,11 @@ import ShopRightContent from './ShopRight'
 import ShopDetail from './ShopDetail/ShopDetail'
 export default {
   name: 'ShopRightWrapper',
+  props: {
+    pageList: {
+      type: Array
+    }
+  },
   components: {
     ShopIcon,
     ShopDetail,
@@ -40,7 +45,6 @@ export default {
     return {
       icon: '\ue630 搜索',
       IconList: [],
-      pageList: [],
       detail: [],
       page: 0,
       DetailShow: false,
@@ -58,16 +62,6 @@ export default {
       axios.get('/api/ShopIndex.json').then(res => {
         const IconList = res.data.IconList
         this.IconList = IconList
-      }).catch(err => {
-        console.log(err)
-      })
-    },
-    getPage () {
-      axios.get('/api/page.json').then(res => {
-        if (res.status === 200) {
-          const pageList = res.data.data
-          this.pageList = pageList
-        }
       }).catch(err => {
         console.log(err)
       })
@@ -117,7 +111,6 @@ export default {
   mounted () {
     this.$nextTick(() => {
       this.getShopIndex()
-      this.getPage()
       this.getscroll()
     })
   }

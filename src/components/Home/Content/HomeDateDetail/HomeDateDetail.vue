@@ -71,6 +71,7 @@ export default {
             font-weight: bold
     .input-wrapper
         width: 100%
+        box-sizing: border-box
         // height: 10%
         .input-content
             display: block
@@ -79,6 +80,7 @@ export default {
             font-size: 1.1rem
             padding-left: 0.4rem
             box-sizing: border-box
+            outline: none
     .line
         width: 100%
         height: .6rem
