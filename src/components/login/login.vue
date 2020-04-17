@@ -7,7 +7,7 @@
         <div class="Input-Content">
           <div class="Input">
             <input class='username' type="text" v-model='username' placeholder='手机号/邮箱/会员名'>
-            <input class='password' type="text" v-model='password' placeholder='请输入登录密码'>
+            <input class='password' type="password" v-model='password' placeholder='请输入登录密码'>
           </div>
           <div class="Login-type">
             <span>忘记密码</span>
