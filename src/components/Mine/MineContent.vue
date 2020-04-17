@@ -3,7 +3,8 @@
         <div class="Mine-Header">
             <div class="head">
                 <img class='head-img' src="http://p3.pstatp.com/large/6ed70006004c249ae162" alt="">
-                <div class="HeadLogin">点击登录</div>
+                <!-- <div class="HeadLogin">点击登录</div> -->
+                <router-link class='HeadLogin' tag='div' to='/Login'>点击登录</router-link>
             </div>
         </div>
         <div class="MineNav">
@@ -52,12 +53,34 @@
                 </div>
             </div>
         </div>
+        <MineList :Mine='Mine'/>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+import MineList from './MineList'
 export default {
-  name: 'MineContent'
+  name: 'MineContent',
+  components: {
+    MineList
+  },
+  data () {
+    return {
+      Mine: []
+    }
+  },
+  mounted () {
+    axios.get('/api/Mine.json').then(res => {
+      if (res.data.ret === true) {
+        const Mine = res.data.Mine
+        this.Mine = Mine
+        console.log(this.Mine)
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+  }
 }
 </script>
 

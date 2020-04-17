@@ -1,15 +1,15 @@
 <template>
     <div>
-        <Login/>
+        <MineContent/>
     </div>
 </template>
 
 <script>
-import Login from '../components/login/login'
+import MineContent from '../components/Mine/MineContent'
 export default {
   name: 'Mine',
   components: {
-    Login
+    MineContent
   }
 }
 </script>

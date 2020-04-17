@@ -6,6 +6,7 @@ import Trends from '../views/Trends'
 import Shop from '../views/Shop'
 import Mine from '../views/Mine'
 import Login from '../components/login/login'
+import Register from '../components/login/register'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/Shop',
     name: 'Shop',
     component: Shop
+  },
+  {
+    path: '/Login/:id',
+    name: 'Register',
+    component: Register
   },
   {
     path: '/Mine',

@@ -11,7 +11,7 @@
           </div>
           <div class="Login-type">
             <span>忘记密码</span>
-            <span>免费注册</span>
+            <router-link tag='span' to='/Login/register'>免费注册</router-link>
           </div>
           <div class="btn-wrapper" @click='HandleClickBtn'>
             登录
@@ -45,6 +45,9 @@ export default {
       }).then(res => {
         console.log(res)
       }).catch(err => {
+        console.log(err)
+      })
+      this.$router.push('/Mine').catch(err => {
         console.log(err)
       })
     }

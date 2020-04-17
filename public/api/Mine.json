@@ -1,0 +1,80 @@
+{
+    "ret": true,
+    "Mine": {
+        "username": "用户1",
+        "MineIcon":[
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1OIxTcLc3T1VjSZLeXXbZsVXa-183-144.png?getAvatar=1",
+                "name": "天猫商品"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1llI3f4n1gK0jSZKPXXXvUXXa-183-144.png?getAvatar=1",
+                "name": "今日爆款"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB19uWKXkCy2eVjSZPfXXbdgpXa-183-144.png?getAvatar=1",
+                "name": "天猫国际"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1DaMyVpzqK1RjSZFoXXbfcXXa-185-144.png?getAvatar=1",
+                "name": "饿了么"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1FucwVwHqK1RjSZFgXXa7JXXa-183-144.png?getAvatar=1",
+                "name": "天猫超市"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1llI3f4n1gK0jSZKPXXXvUXXa-183-144.png?getAvatar=1",
+                "name": "充值中心"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1O_AyVwHqK1RjSZFPXXcwapXa-183-144.png?getAvatar=1",
+                "name": "机票酒店"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB19yZJVBLoK1RjSZFuXXXn0XXa-183-144.png?getAvatar=1",
+                "name": "金币庄园"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB16ZYDk4n1gK0jSZKPXXXvUXXa-183-144.png?getAvatar=1",
+                "name": "阿里拍卖"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB19dcwVyrpK1RjSZFhXXXSdXXa-183-144.png?getAvatar=1",
+                "name": "淘宝吃货"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1nBktVxTpK1RjSZR0XXbEwXXa-183-144.png?getAvatar=1",
+                "name": "分类"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1fcOKXkCy2eVjSZSyXXXukVXa-183-144.png?getAvatar=1",
+                "name": "天猫美食"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1h1MnVCrqK1RjSZK9XXXyypXa-183-144.png?getAvatar=1",
+                "name": "阿里健康"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB11tFkr7L0gK0jSZFxXXXWHVXa-183-144.png?getAvatar=1",
+                "name": "口碑生活"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1CoEwVrvpK1RjSZFqXXcXUVXa-185-144.png?getAvatar=1",
+                "name": "土货鲜食"
+            },
+            {
+                "imgUrl": "https://img.alicdn.com/tfs/TB1FyEazAY2gK0jSZFgXXc5OFXa-183-144.png?getAvatar=1",
+                "name": "闲鱼"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1xcTYxFT7gK0jSZFpXXaTkpXa-183-144.png?getAvatar=1",
+                "name": "会员中心"
+            },
+            {
+                "imgUrl": "https://gw.alicdn.com/tfs/TB1tOGokubviK0jSZFNXXaApXXa-183-144.png?getAvatar=1",
+                "name": "会员店"
+            }
+        ]
+    }
+}
