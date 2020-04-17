@@ -70,15 +70,21 @@ export default {
       Mine: []
     }
   },
-  mounted () {
-    axios.get('/api/Mine.json').then(res => {
-      if (res.data.ret === true) {
-        const Mine = res.data.Mine
-        this.Mine = Mine
-        console.log(this.Mine)
-      }
-    }).catch(err => {
-      console.log(err)
+  methods: {
+    getMineAxios () {
+      axios.get('/api/Mine.json').then(res => {
+        if (res.status === 200) {
+          const Mine = res.data.Mine.MineIcon
+          this.Mine = Mine
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  },
+  created () {
+    this.$nextTick(() => {
+      this.getMineAxios()
     })
   }
 }

@@ -1,18 +1,16 @@
 <template>
     <div class='MineList-Wrapper'>
       <div class="MineListConte">
-        <swiper ref="mySwiper">
-        <swiper-slide>
-          <div class="MineListItem" v-for='(item, index) in 10' :key='index'>
-            <div class="Item-Img"><img src="https://gw.alicdn.com/tfs/TB1h1MnVCrqK1RjSZK9XXXyypXa-183-144.png?getAvatar=1" alt=""></div>
-            <div class="Item-desc">天猫超市</div>
-          </div>
-        </swiper-slide>
-        <swiper-slide><div class="MineListItem" v-for='(item, index) in 10' :key='index'>1</div></swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <swiper ref="mySwiper" :options="swiperOptions">
+          <swiper-slide v-for='(item, index) in list' :key='index'>
+            <div class="MineListItem" v-for='(iteminner, index) in item' :key='index'>
+              <div class="Item-Img"><img :src="iteminner.imgUrl" alt=""></div>
+              <div class="Item-desc">{{iteminner.name}}</div>
+            </div>
+          </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
       </div>
-      {{list}}
     </div>
 </template>
 
@@ -21,20 +19,41 @@ export default {
   name: 'MineList',
   props: {
     Mine: {
-      type: [Array, Object]
+      type: Array
+    }
+  },
+  data () {
+    return {
+      swiperOptions: {
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      }
     }
   },
   computed: {
     list () {
-      console.log(this.Mine.MineIcon)
-      // const result = []
-      return 1
+      const pages = []
+      this.Mine.forEach((item, index) => {
+        const page = Math.floor(index / 10)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      console.log(pages)
+      return pages
     }
   }
 }
 </script>
 
 <style lang='stylus' scoped>
+.MineList-Wrapper >>> .swiper-container
+  overflow: visible
+.MineList-Wrapper >>> .swiper-pagination-bullets
+  position: absolute
+  bottom: -1rem
 .MineList-Wrapper
   width: 100%
   background: #fff
@@ -44,8 +63,8 @@ export default {
   box-sizing: border-box
   .MineListConte
     width: 100%
+    padding: 0 0 1rem 0
     overflow: hidden
-    background: yellow
     .MineListItem
       width: 20%
       height: 0
@@ -53,7 +72,6 @@ export default {
       float: left
       display: block
       text-align: center
-      background: green
       margin-bottom: .3rem
       .Item-Img img
         width:  88%

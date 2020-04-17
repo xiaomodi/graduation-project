@@ -5,8 +5,8 @@ import Friend from '../views/Friend'
 import Trends from '../views/Trends'
 import Shop from '../views/Shop'
 import Mine from '../views/Mine'
-import Login from '../components/login/login'
-import Register from '../components/login/register'
+import Login from '../components/Login/login'
+import Register from '../components/Login/register'
 
 Vue.use(VueRouter)
 
