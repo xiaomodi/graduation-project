@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <CLassRoomItem v-show='false'/>
+      <CLassRoomItem v-show='true'/>
     </div>
 </template>
 
