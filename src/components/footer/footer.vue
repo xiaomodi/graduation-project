@@ -3,7 +3,7 @@
         <router-link to='/' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <span class='iconfont icon1'>&#xe601;</span>
+                    <span class='iconfont icon1'>&#xe60c;</span>
                 </div>
                 <div class='footer-text'>首页</div>
             </div>
@@ -11,7 +11,7 @@
         <router-link to='/Friend' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <span class="iconfont">&#xe600;</span>
+                    <span class="iconfont">&#xe60b;</span>
                 </div>
                 <div class='footer-text'>好友</div>
             </div>
@@ -35,7 +35,7 @@
         <router-link to='/Mine' class='footer-item' tag='div'>
             <div class='footer-item-content'>
                 <div>
-                    <span class="iconfont">&#xe603;</span>
+                    <span class="iconfont">&#xe60e;</span>
                 </div>
                 <div class='footer-text'>我的</div>
             </div>
@@ -88,4 +88,5 @@ export default {
             .footer-text
                 text-align: center
                 font-size: .8rem
+                line-height: 1.2rem
 </style>

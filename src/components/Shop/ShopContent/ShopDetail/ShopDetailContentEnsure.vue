@@ -4,7 +4,7 @@
             <div class="active-top">
                 <div class="active">保障</div>
                 <div class="active-content">100%正品，更快送达，免费取退</div>
-                <div class="icons-wrapper"><span class='iconfont'>&#xe600;</span></div>
+                <div class="icons-wrapper"><span class='iconfont icon1'>&#xe602;</span></div>
             </div>
             <div class='active-bottom'>
                 <div class="active-bottom-content">假一赔四，免费取退，一键售后</div>
@@ -73,6 +73,8 @@ export default {
                 padding: .3rem 1.2rem .3rem 0
                 text-align: right
                 box-sizing: border-box
+                .icon1
+                    font-size: .9rem
         .active-bottom
             width: 100%
             display: flex

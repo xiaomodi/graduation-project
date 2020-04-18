@@ -43,7 +43,7 @@ export default {
   },
   data () {
     return {
-      icon: '\ue630 搜索',
+      icon: '\ue603 搜索',
       IconList: [],
       detail: [],
       page: 0,

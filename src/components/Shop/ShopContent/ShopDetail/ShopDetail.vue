@@ -3,7 +3,7 @@
         <v-touch class='shopDetail-Wrapper' @swiperight.self='swiperight'>
             <div class="ItemHeader">
                 <span class='BackHome' @click='handleBackHome'>
-                    返回
+                    <span class="iconfont">&#xe60a;</span>
                 </span>
                 <span class='ItemTit'>商品详情</span>
             </div>
@@ -16,7 +16,7 @@
             <div class="Detail-desc-wrapper">
                 <div class="Detail-desc">{{detail.short_description}}</div>
                 <div class="share-wrapper">
-                    <span class='share'><span class='iconfont'>&#xe630;</span>分享</span>
+                    <span class='share'><span class='iconfont'>&#xe608;</span>分享</span>
                 </div>
             </div>
             <div class="line"></div>
@@ -27,15 +27,27 @@
             <div class="ItemFooter-Wrapper">
                 <div class="Item-footer">
                     <div class="shoucang">
-                        <div class="star"><span class='iconfont'>&#xe630;</span></div>
+                        <div class="shopIcon">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-dianpu"></use>
+                            </svg>
+                        </div>
                         <div class="text">店铺</div>
                     </div>
                     <div class="shoucang">
-                        <div class="star"><span class='iconfont'>&#xe630;</span></div>
+                        <div class="KFIcon">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-kefu"></use>
+                            </svg>
+                        </div>
                         <div class="text">客服</div>
                     </div>
                     <div class="shoucang">
-                        <div class="star"><span class='iconfont'>&#xe630;</span></div>
+                        <div class="SCIcon">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-shoucang"></use>
+                            </svg>
+                        </div>
                         <div class="text">收藏</div>
                     </div>
                     <div class="shopping-card">
@@ -153,7 +165,6 @@ export default {
         left: 0
         right: 0
         bottom: 0
-        border: .01rem solid black
         .Item-footer
             width: 100%
             height: 2.5rem
@@ -169,10 +180,18 @@ export default {
                 flex: 0 0 3rem
                 text-align: center
                 padding: .2rem 0
-                .iconfont
-                    font-size: 1.2rem
+                .shopIcon
+                    font-size: 1.1rem
                     display: block
-                    margin-bottom: .3rem
+                    margin-top: .1rem
+                    margin-bottom: .2rem
+                .KFIcon
+                    font-size: 1.25rem
+                    margin-bottom: .2rem
+                .SCIcon
+                    margin-top: -.15rem
+                    font-size: 1.4rem
+                    margin-bottom: .2rem
                 .text
                     font-size: .6rem
             .shopping-card

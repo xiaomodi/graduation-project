@@ -9,19 +9,19 @@
         </div>
         <div class="MineNav">
             <div class="favourite">
-                <div><span class='iconfont'>&#xe6a4;</span></div>
+                <div class='num'>12</div>
                 <div>收藏夹</div>
             </div>
             <div class="shop">
-                <div><span class='iconfont'>&#xe6a4;</span></div>
+                <div class='num'>23</div>
                 <div>商铺</div>
             </div>
             <div class="footprint">
-                <div><span class='iconfont'>&#xe6a4;</span></div>
+                <div><span class='iconfont'>&#xe611;</span></div>
                 <div>足迹</div>
             </div>
             <div class="packrt">
-                <div><span class='iconfont'>&#xe6a4;</span></div>
+                <div class='num'>52</div>
                 <div>红包</div>
             </div>
         </div>
@@ -32,23 +32,23 @@
             </div>
             <div class="order-bottom">
                 <div class="pay">
-                    <div><span class='iconfont'>&#xe6a4;</span></div>
+                    <div><span class='iconfont'>&#xe665;</span></div>
                     <div>待付款</div>
                 </div>
                 <div class="dispatched">
-                    <div><span class='iconfont'>&#xe6a4;</span></div>
+                    <div><span class='iconfont'>&#xe614;</span></div>
                     <div>待发货</div>
                 </div>
                 <div class="Waiting">
-                    <div><span class='iconfont'>&#xe6a4;</span></div>
+                    <div><span class='iconfont'>&#xe613;</span></div>
                     <div>待收货</div>
                 </div>
                 <div class="appraise">
-                    <div><span class='iconfont'>&#xe6a4;</span></div>
+                    <div><span class='iconfont'>&#xe6a8;</span></div>
                     <div>评价</div>
                 </div>
                 <div class="refund">
-                    <div><span class='iconfont'>&#xe6a4;</span></div>
+                    <div><span class='iconfont'>&#xe612;</span></div>
                     <div>退款/售后</div>
                 </div>
             </div>
@@ -91,6 +91,8 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+@import '../../assets/stylus/bgColor.styl'
+
 .MineContent-Wrapper
     width: 100%
     position: fixed
@@ -130,27 +132,31 @@ export default {
         font-size: .9rem
         .favourite
             text-align: center
-            .iconfont
+            .num
                 display: block
-                font-size: 1.5rem
+                font-size: .9rem
+                margin-top: .33rem
                 margin-bottom: .3rem
         .shop
             text-align: center
-            .iconfont
+            .num
                 display: block
-                font-size: 1.5rem
+                font-size: .9rem
+                margin-top: .33rem
                 margin-bottom: .3rem
         .footprint
             text-align: center
             .iconfont
                 display: block
-                font-size: 1.5rem
-                margin-bottom: .3rem
+                font-size: 1rem
+                margin-top: .2rem
+                margin-bottom: .25rem
         .packrt
             text-align: center
-            .iconfont
+            .num
                 display: block
-                font-size: 1.5rem
+                font-size: .9rem
+                margin-top: .33rem
                 margin-bottom: .3rem
     .order
         width: 100%
@@ -182,28 +188,36 @@ export default {
                     display: block
                     font-size: 1.5rem
                     margin-bottom: .3rem
+                    color: $bgColor
             .dispatched
                 text-align: center
                 .iconfont
                     display: block
-                    font-size: 1.5rem
+                    margin-top: .25rem
+                    font-size: 1.3rem
                     margin-bottom: .3rem
+                    color: $bgColor
             .Waiting
                 text-align: center
                 .iconfont
                     display: block
                     font-size: 1.5rem
                     margin-bottom: .3rem
+                    color: $bgColor
             .appraise
                 text-align: center
                 .iconfont
                     display: block
-                    font-size: 1.5rem
+                    font-size: 1.3rem
+                    margin-top: .25rem
                     margin-bottom: .3rem
+                    color: $bgColor
             .refund
                 text-align: center
                 .iconfont
                     display: block
                     font-size: 1.5rem
+                    margin-top: .05rem
                     margin-bottom: .3rem
+                    color: $bgColor
 </style>

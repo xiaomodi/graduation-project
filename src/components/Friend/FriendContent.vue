@@ -43,7 +43,7 @@ export default {
   },
   data () {
     return {
-      icon: '\ue601 搜索',
+      icon: '\ue603 搜索',
       friendlist: {},
       letter: '',
       keyword: '',

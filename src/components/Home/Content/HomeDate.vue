@@ -13,10 +13,14 @@
           </div>
           <div class="Date-Content-wrapper">
               <div class="content-tit">
-                <span class='lastmonth' @click="prevMonth">《</span>
+                <span class='lastmonth' @click="prevMonth">
+                  <span class="iconfont">&#xe61b;</span>
+                </span>
                 <span class='title-year'>{{time.year}} 年</span>
                 <span class='title-month'>{{time.month+1}} 月</span>
-                <span class='nextmonth' @click="nextMonth">》</span>
+                <span class='nextmonth' @click="nextMonth">
+                  <span class="iconfont">&#xe617;</span>
+                </span>
               </div>
               <div class="date-content">
                 <div class="days-head">
@@ -46,15 +50,23 @@
             <div class="today-wrapper">
               <span class='today'>今天</span>
               <span class='today-date'>{{this.currentDate | getToday}}</span>
-              <span class="add" @click='hanleClickAdd'>添加</span>
+              <span class="add" @click='hanleClickAdd'>
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-bianji"></use>
+                </svg>
+              </span>
             </div>
             <ul>
               <li class='node-item' v-for='item in 10' :key='item'>
                 <span class='time'>时间</span>
                 <span class='content'>内容</span>
                 <span class='rewrite'>
-                  <span class="edit" @click='handleClickEdit'>编辑</span>
-                  <span class="cancel">取消</span>
+                  <span class="edit" @click='handleClickEdit'>
+                    <span class="iconfont">&#xe61d;</span>
+                  </span>
+                  <span class="cancel">
+                    <span class="iconfont">&#xe618;</span>
+                  </span>
                 </span>
               </li>
             </ul>
@@ -291,11 +303,9 @@ export default {
     width: 100%
     padding: .5rem 1.2rem
     box-sizing: border-box
-    border: .01rem solid black
     .today-wrapper
       margin-bottom: .5rem
       overflow: hidden
-      border: .01rem solid black
       .today
         line-height: 1.5rem
         font-weight: bold
@@ -316,23 +326,22 @@ export default {
       box-sizing: border-box
       display: flex
       .time
-        border: .01rem solid yellow
         flex: 0 0 3.7rem
       .content
-        border: .01rem solid green
         flex: 1
         ellipsis()
       .rewrite
-        border: .01rem solid red
-        flex: 0 0 4rem
+        flex: 0 0 3rem
         font-size: .8rem
         overflow: hidden
         .edit
-          border: .01rem solid pink
           float: left
           display: block
+          color: #999
+          font-size: .7rem
         .cancel
-          border: .01rem solid orange
           float: right
           display: block
+          color: #999
+          font-size: .7rem
 </style>

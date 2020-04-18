@@ -3,7 +3,7 @@
         <v-touch class='Item-Wrapper' v-on:swiperight="swiperight">
             <div class="ItemHeader">
                 <span class='BackHome' @click='handleBackHome'>
-                    返回
+                    <span class="iconfont">&#xe60a;</span>
                 </span>
                 <span class='ItemTit'>活动详情</span>
             </div>
@@ -14,15 +14,15 @@
             <div class="ItemDetail">
                 <ul>
                     <li class='Item-Date'>
-                        <span class='icon'>图标</span>
+                        <span class='iconfont icon'>&#xe606;</span>
                         <span class='content'>{{this.selectItem.time | getAllDate}}</span>
                     </li>
                     <li class='Item-Address'>
-                        <span class='icon'>图标</span>
+                        <span class='iconfont icon2'>&#xe670;</span>
                         <span class='content city' v-for="(iteminner, index) in selectItem.address.split('|')" :key='index'>{{iteminner}}</span>
                     </li>
                     <li class='Item-tel'>
-                        <span class='icon'>图标</span>
+                        <span class='iconfont icon3'>&#xe664;</span>
                         <span class='content'>{{this.selectItem.tel}}</span>
                     </li>
                 </ul>
@@ -105,6 +105,17 @@ export default {
                 line-height: 2.5rem
                 margin-right: .5rem
                 vertical-align: top
+            .icon2
+                font-size: 1.3rem
+                line-height: 2.5rem
+                margin-right: .3rem
+                vertical-align: top
+            .icon3
+                font-size: 1.3rem
+                line-height: 2.5rem
+                margin-right: .3rem
+                vertical-align: top
+                color: #000
             .content
                 line-height: 2.5rem
                 &.city

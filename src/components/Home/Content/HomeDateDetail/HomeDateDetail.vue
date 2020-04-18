@@ -3,7 +3,7 @@
         <v-touch class='HomeDateDetail-Wrapper' v-on:swiperight="swiperight">
             <div class="ItemHeader">
                 <span class='BackHome' @click='handleBackHome'>
-                    返回
+                    <span class="iconfont">&#xe60a;</span>
                 </span>
                 <span class='ItemTit'>添加日程</span>
             </div>
