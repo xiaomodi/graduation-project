@@ -11,12 +11,13 @@
                 <textarea name="text" wrap='hard' cols='100%' class='input-content' placeholder="输入内容" v-model='text'></textarea>
             </div>
              <div class="line"></div>
-             <div class="btn">完成</div>
+             <div class="btn" @click='handleClickFinish'>完成</div>
         </v-touch>
     </transition>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HomeDateDetail',
   data () {
@@ -30,6 +31,24 @@ export default {
     },
     handleBackHome () {
       this.$emit('close')
+    },
+    handleClickFinish () {
+      if (this.text) {
+        const data = {
+          text: this.text
+        }
+        axios({
+          method: 'post',
+          url: '/api/date.json',
+          data: data
+        }).then(res => {
+          console.log(res)
+        }).catch(err => {
+          console.log(err)
+        })
+        this.$emit('close')
+        this.text = ''
+      }
     }
   }
 }
