@@ -5,7 +5,7 @@
                 <div class="backHome" @click='handleClickBackTrends'><span class="iconfont">&#xe60a;</span></div>
                 <div class="My-Head">
                     <span class='My-Name'>name</span>
-                    <img src="https://avatars1.githubusercontent.com/u/52339443?s=460&u=d11ceda9c39fd9ae6c0bf34d24dca299145565d8&v=4" alt="" class="My-Head-img">
+                    <img src="https://cdn2.jianshu.io/assets/default_avatar/6-fd30f34c8641f6f32f5494df5d6b8f3c.jpg" alt="" class="My-Head-img">
                 </div>
             </div>
             <div class="header" v-show='true' @click='handleClickBackTrends' :style="{opacity: isopacity}">
