@@ -2,13 +2,13 @@
     <div class='Shop-Wrapper'>
       <div class="ClassroomHeader">
         <div class="HeaderNav">
-          <span class='active'>全部</span>
-          <span>实战课</span>
-          <span>金职位</span>
-          <span>微课</span>
+          <span :class="{active: isactive === 1}" @click='handleClickAll(1)'>全部</span>
+          <span :class="{active: isactive === 2}" @click='handleClickActual(2)'>实战课</span>
+          <span :class="{active: isactive === 3}" @click='handleClickKing(3)'>金职位</span>
+          <span :class="{active: isactive === 4}" @click='handleClickSmell(4)'>微课</span>
         </div>
       </div>
-      <div class="ClassRoomContentWrapper" ref='ClassRoomContentWrapper'>
+      <div class="ClassRoomContentWrapper" ref='ClassRoomContentWrapper' v-show='1 === isactive'>
         <div>
           <div class="ClassRoomContent" v-for='(item, index) in this.pageList' :key='index'>
             <div class="Left-pictures">
@@ -27,13 +27,17 @@
           </div>
         </div>
       </div>
-      <CLassRoomItem v-show='true'/>
+      <ClassRoomActualCombat v-show='2 === isactive'/>
+      <ClassRoomKing v-show='3 === isactive'/>
+      <ClassRoomSmell v-show='4 === isactive'/>
     </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll'
-import CLassRoomItem from './ClossRoomItem/ClossRoomItem'
+import ClassRoomActualCombat from './ClassRoomActualCombat/ClassRoomActualCombat'
+import ClassRoomKing from './ClassRoomKing/ClassRoomKing'
+import ClassRoomSmell from './CLassRoomSmell/CLassRoomSmell'
 export default {
   name: 'ShopClassRoom',
   props: {
@@ -42,7 +46,30 @@ export default {
     }
   },
   components: {
-    CLassRoomItem
+    ClassRoomActualCombat,
+    ClassRoomKing,
+    ClassRoomSmell
+  },
+  data () {
+    return {
+      isactive: 1
+    }
+  },
+  methods: {
+    handleClickAll (num) {
+      this.isactive = num
+      this.contentShow = true
+    },
+    handleClickActual (num) {
+      this.isactive = num
+      this.ActualCombat = true
+    },
+    handleClickKing (num) {
+      this.isactive = num
+    },
+    handleClickSmell (num) {
+      this.isactive = num
+    }
   },
   mounted () {
     if (!this.scroll) {

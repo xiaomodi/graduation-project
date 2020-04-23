@@ -33,6 +33,8 @@
 </template>
 
 <script>
+// import BScroll from 'better-scroll'
+
 export default {
   name: 'TrendsFriends',
   data () {
@@ -78,7 +80,7 @@ export default {
     right: 0
     bottom: 0
     z-index: 50000
-    background: #fff
+    background: #ffff
     .TrendsFriend-Head
         width: 100%
         height: 25%
