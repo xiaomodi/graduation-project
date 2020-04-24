@@ -7,6 +7,7 @@ import Shop from '../views/Shop'
 import Mine from '../views/Mine'
 import Login from '../components/login/login'
 import Register from '../components/login/register'
+import TrendsFriends from '../components/Trends/TrendsFriend/TrendsFriend'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/Trends',
     name: 'Trends',
     component: Trends
+  },
+  {
+    path: '/Trends/:id',
+    name: 'TrendsFriends',
+    component: TrendsFriends
   },
   {
     path: '/Shop',

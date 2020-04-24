@@ -5,7 +5,7 @@
                 <span class='TrendsTit'>动态</span>
             </div>
             <div class="TrendsContent">
-                <div class='TrendsItem' @click='handleClickTrendsFriendsShow'>
+                <router-link to='/Trends/Friends' class='TrendsItem' tag='div'>
                     <span class='icon1'>
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-pengyouquan"></use>
@@ -13,7 +13,7 @@
                     </span>
                     <span class='desc'>朋友圈</span>
                     <span class='iconfont icon2'>&#xe602;</span>
-                </div>
+                </router-link>
                 <div class='TrendsItem'>
                     <span class='icon1 iconsao'>
                         <svg class="icon" aria-hidden="true">
@@ -70,29 +70,16 @@
                 </div>
             </div>
         </div>
-        <TrendsFriends v-show='TrendsFriends' @close='handleCloseTrendsFriends'/>
     </div>
 </template>
 
 <script>
-import TrendsFriends from './TrendsFriend/TrendsFriend'
 
 export default {
   name: 'TrendsContent',
-  components: {
-    TrendsFriends
-  },
-  data () {
-    return {
-      TrendsFriends: false
-    }
-  },
   methods: {
     handleClickTrendsFriendsShow () {
       this.TrendsFriends = true
-    },
-    handleCloseTrendsFriends () {
-      this.TrendsFriends = false
     }
   }
 }
