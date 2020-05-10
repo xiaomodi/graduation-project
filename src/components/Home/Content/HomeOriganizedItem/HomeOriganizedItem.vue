@@ -19,7 +19,7 @@
                     </li>
                     <li class='Item-Address'>
                         <span class='iconfont icon2'>&#xe670;</span>
-                        <span class='content city' v-for="(iteminner, index) in selectItem.address.split('|')" :key='index'>{{iteminner}}</span>
+                         <span class='content city' v-for="(iteminner, index) in (selectItem.address || '').split('|')" :key='index'>{{iteminner}}</span>
                     </li>
                     <li class='Item-tel'>
                         <span class='iconfont icon3'>&#xe664;</span>
@@ -118,6 +118,7 @@ export default {
                 color: #000
             .content
                 line-height: 2.5rem
-                &.city
-                    margin-right: .3rem
+                line-height: 2.5rem
+                // &.city
+                //     margin-right: .3rem
 </style>

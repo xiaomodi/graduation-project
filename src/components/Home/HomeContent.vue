@@ -31,9 +31,6 @@ export default {
     handleClickHeaderItem (num) {
       this.$store.dispatch('changNumber', num)
     }
-  },
-  mounted () {
-    console.log(this.$store.state.isactive)
   }
 }
 </script>

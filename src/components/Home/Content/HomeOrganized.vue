@@ -13,7 +13,6 @@
         </div>
         <div class="content-tit">
           <span class='activity'>线下活动</span>
-          <span class='read-more'>更多>></span>
         </div>
         <div class="Content-Wrapper">
           <div class="Content-Item" v-for='(item, index) in this.HomeList' :key='index' @click='handleClickItem(item)'>
@@ -23,7 +22,7 @@
             </div>
             <div class="item-footer">
               <span class='time'>{{item.time | getDate}}</span>
-              <span class='address' v-for="(iteminner, index) in item.address.split('|')" :key='index'>{{iteminner}}</span>
+              <span class='address' v-for="(iteminner, index) in item.address.split('|').reverse()" :key='index'>{{iteminner}}</span>
             </div>
           </div>
         </div>
@@ -93,10 +92,10 @@ export default {
       } // pullingUp
       this.scroll.on('pullingUp', poy => {
         this.loadmore = true
-        this.pages++
         axios.get('/api/Home.json?=' + this.pages).then(res => {
           if (res.status === 200) {
             this.loadmore = false
+            this.pages++
             const HomeList = res.data.data.Home
             HomeList.forEach(item => {
               this.HomeList.push(item)
@@ -201,7 +200,7 @@ export default {
         .address
           font-size: .9rem
           float: right
-          display: blick
+          display: block
 .loadmore
   width: 100%
   line-height: 2.2rem

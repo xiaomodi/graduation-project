@@ -68,7 +68,6 @@ export default {
           if (opacity < 0.15) {
             this.isopacity = 0
           }
-          console.log(this.isopacity)
         }
       })
     }
