@@ -2,8 +2,8 @@
     <div class='Letter-Wrapper'>
         <ul>
             <li class='letterlist'
-                :class='{active: item === letter}'
-                v-for='item in letters'
+                :class='{active: index === Index}'
+                v-for='(item, index) in letters'
                 :key='item'
                 :ref='item'
                 @click='handleClickLetter(item)'
@@ -23,6 +23,9 @@ export default {
   props: {
     friendlist: {
       type: Object
+    },
+    Index: {
+      type: Number
     }
   },
   data () {

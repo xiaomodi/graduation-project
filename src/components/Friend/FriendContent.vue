@@ -8,7 +8,7 @@
         </div>
         <div class="Friend-Content" ref='FriendContent'>
             <ul>
-                <li class='letter-list' v-for='(item, key) of friendlist' :key='key' :ref='key'>
+                <li class='letter-list letter-list-hook' v-for='(item, key) of friendlist' :key='key' :ref='key'>
                     <div class="letter">{{key}}</div>
                     <ul>
                         <li class='item' v-for='iteminner in item' :key='iteminner.id'>
@@ -28,7 +28,7 @@
           </ul>
           <div class="nothing" v-show='hasNoDate'>什么都没有找到</div>
         </div>
-        <FriendLetter :friendlist='friendlist' @change='handleLetterChange' />
+        <FriendLetter :friendlist='friendlist' @change='handleLetterChange' :Index='Index'/>
     </div>
 </template>
 
@@ -47,7 +47,9 @@ export default {
       friendlist: {},
       letter: '',
       keyword: '',
-      result: []
+      result: [],
+      scrollY: 0,
+      heightAll: []
     }
   },
   watch: {
@@ -77,6 +79,16 @@ export default {
   computed: {
     hasNoDate () {
       return !this.result.length
+    },
+    Index () {
+      for (let i = 0; i < this.heightAll.length; i++) {
+        const height1 = this.heightAll[i]
+        const height2 = this.heightAll[i + 1]
+        if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+          return i
+        }
+      }
+      return 0
     }
   },
   methods: {
@@ -85,9 +97,34 @@ export default {
         if (res.status === 200) {
           const friendlist = res.data.data.cities
           this.friendlist = friendlist
+          this.$nextTick(() => {
+            this.getHeight()
+          })
         }
       }).catch(err => {
         console.log(err)
+      })
+    },
+    getScroll () {
+      if (!this.scroll) {
+        this.scroll = new BScroll(this.$refs.FriendContent, {
+          click: true,
+          probeType: 3
+        })
+      } else {
+        this.scroll.refresh()
+      }
+      this.scroll.on('scroll', poy => {
+        this.scrollY = Math.abs(Math.round(poy.y))
+      })
+    },
+    getHeight () {
+      let height = 0
+      const items = this.$refs.FriendContent.getElementsByClassName('letter-list-hook')
+      this.heightAll.push(height)
+      items.forEach(item => {
+        height += item.clientHeight
+        this.heightAll.push(height)
       })
     },
     handleLetterChange (key) {
@@ -101,7 +138,7 @@ export default {
   },
   mounted () {
     this.getAxios()
-    this.scroll = new BScroll(this.$refs.FriendContent)
+    this.getScroll()
   }
 }
 </script>
